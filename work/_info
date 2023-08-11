@@ -1,0 +1,91 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/aashi/OneDrive/Desktop/uvm
+vAsyncfifo
+Z0 !s110 1691724930
+!i10b 1
+!s100 018d=LjJLSdWa]H[88DLS3
+IHb[VbLJb]K5PATmR<F58Z0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/verilog projects/Asyncfifo/AsyncFifo
+w1691362721
+8C:/verilog projects/Asyncfifo/AsyncFifo/AysncFifo.v
+FC:/verilog projects/Asyncfifo/AsyncFifo/AysncFifo.v
+L0 4
+Z3 OV;L;10.4d;61
+r1
+!s85 0
+31
+Z4 !s108 1691724930.000000
+!s107 C:/verilog projects/Asyncfifo/AsyncFifo/AysncFifo.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/verilog projects/Asyncfifo/AsyncFifo/AysncFifo.v|
+!i113 1
+Z5 o-work work
+n@asyncfifo
+vfifomem
+Z6 !s110 1691724931
+!i10b 1
+!s100 M[bAbPL><>Izb4`R6X1P;3
+Ig@PFb<`8X4;R3Y6Hj2OV]0
+R1
+R2
+w1691361557
+8C:/verilog projects/Asyncfifo/AsyncFifo/Fifomem.v
+FC:/verilog projects/Asyncfifo/AsyncFifo/Fifomem.v
+L0 3
+R3
+r1
+!s85 0
+31
+Z7 !s108 1691724931.000000
+!s107 C:/verilog projects/Asyncfifo/AsyncFifo/Fifomem.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/verilog projects/Asyncfifo/AsyncFifo/Fifomem.v|
+!i113 1
+R5
+vsync_r2w
+R6
+!i10b 1
+!s100 BM=1W4f^;DUET8ZXnOOhK2
+I7CFd1Xe2PLKF@8n]aX[910
+R1
+R2
+w1691723812
+8C:/verilog projects/Asyncfifo/AsyncFifo/sync_r2w.v
+FC:/verilog projects/Asyncfifo/AsyncFifo/sync_r2w.v
+L0 2
+R3
+r1
+!s85 0
+31
+R7
+!s107 C:/verilog projects/Asyncfifo/AsyncFifo/sync_r2w.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/verilog projects/Asyncfifo/AsyncFifo/sync_r2w.v|
+!i113 1
+R5
+vsync_w2r
+R0
+!i10b 1
+!s100 mR4T3mP^<<@Siiiz3aJOX3
+I3Scj4b;EWY3]@EgTa1B]01
+R1
+R2
+w1691723805
+8C:/verilog projects/Asyncfifo/AsyncFifo/sync_w2r.v
+FC:/verilog projects/Asyncfifo/AsyncFifo/sync_w2r.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/verilog projects/Asyncfifo/AsyncFifo/sync_w2r.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/verilog projects/Asyncfifo/AsyncFifo/sync_w2r.v|
+!i113 1
+R5
