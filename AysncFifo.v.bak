@@ -22,7 +22,7 @@ module Asyncfifo #(parameter data_Size = 8, parameter address_Size = 5 ) (
 	//and to prevent data loss or overwriting 
 	//sync_r2w - synch read pointer with write pointer at write block, sync_w2r - sync write pointer with read pointer at read block 
 	sync_r2w #(address_Size) sync_r2w(.wsync_Rptr(wsync_Rptr), .w_Clk(w_Clk), .w_Rst(w_Rst), .r_Ptr(r_Ptr));
-	sync_w2r #(address_Size)  sync_w2r(.rsync_Wptr(rsync_Wptr), .r_Clk(r_Clk), .r_Rst(r_Rst), .w_Ptr(w_Ptr));
+	sync_w2r #(address_Size) sync_w2r(.rsync_Wptr(rsync_Wptr), .r_Clk(r_Clk), .r_Rst(r_Rst), .w_Ptr(w_Ptr));
 	
 	//instantiating the memory block DRAM from where we can read and write data 
 	fifomem #(data_Size, address_Size) fifomem(.read_Data(read_Data), .write_Data(write_Data), .w_Clk(w_Clk), .w_Enable(w_Inc), .w_Addr(w_Addr), .r_Addr(r_Addr), .fifo_Full(fifo_Full));
