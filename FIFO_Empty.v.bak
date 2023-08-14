@@ -1,6 +1,6 @@
 //verilog code for FIFO EMPTY condition 
 module FIFO_Empty #(parameter address_Size=5)(
-		output reg [address_Size-1:0]r_Addr,		//Address to which the FIFO output should be read, Read pointer 
+		output [address_Size-1:0]r_Addr,		//Address to which the FIFO output should be read, Read pointer 
 								//always points to the address to be read next 
 		input r_Clk,					//Read Clock domain clock
 		input r_Inc, 					//Used to increment the Read pointer 

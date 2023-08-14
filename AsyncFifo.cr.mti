@@ -1,4 +1,18 @@
-{C:/verilog projects/Asyncfifo/AsyncFifo/AysncFifo.v} {1 {vlog -work work -stats=none {C:/verilog projects/Asyncfifo/AsyncFifo/AysncFifo.v}
+{C:/verilog projects/Asyncfifo/AsyncFifo/FIFO_Full.v} {1 {vlog -work work -stats=none {C:/verilog projects/Asyncfifo/AsyncFifo/FIFO_Full.v}
+Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+-- Compiling module FIFO_Full
+
+Top level modules:
+	FIFO_Full
+
+} {} {}} {C:/verilog projects/Asyncfifo/AsyncFifo/FIFO_Empty.v} {1 {vlog -work work -stats=none {C:/verilog projects/Asyncfifo/AsyncFifo/FIFO_Empty.v}
+Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+-- Compiling module FIFO_Empty
+
+Top level modules:
+	FIFO_Empty
+
+} {} {}} {C:/verilog projects/Asyncfifo/AsyncFifo/AysncFifo.v} {1 {vlog -work work -stats=none {C:/verilog projects/Asyncfifo/AsyncFifo/AysncFifo.v}
 Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
 -- Compiling module Asyncfifo
 
