@@ -6,7 +6,7 @@ module FIFO_Full #(parameter address_Size = 5)(
 	output reg [address_Size:0]w_Ptr,	//Write pointer always points to the location to be written to
 	input   w_Rst,				//Write clock domain Reset
 	output reg fifo_Full,			//Assereted when FIFO is full
-	input   wsync_Rptr);			//Write clock synchronized Read pointer 
+	input   [address_Size:0]wsync_Rptr);			//Write clock synchronized Read pointer 
 
 	wire [address_Size:0]w_NextBin, w_NextGray;	//to store next address and pointer
 	reg [address_Size:0] w_Bin;			//to store current address to be written
@@ -24,19 +24,19 @@ always@(posedge w_Clk, negedge w_Rst)begin
 end 
 
 //Assigning current adddress to be written to in the memory
-assign w_Addr = w_Bin;
+assign w_Addr = w_Bin[address_Size-1:0];
 
 ///Calculating gray counter value for updating next pointer and updating next address 
-assign w_NextBin = w_Bin + ( w_Inc + ~fifo_Full );
+assign w_NextBin = w_Bin + ( w_Inc & ~fifo_Full );
 assign w_NextGray = ( w_NextBin >> 1) ^ w_NextBin;
 
 //Comparing the pointers to see if the fifo full condition is met
-assign w_full = (w_NextGray == wsync_Rptr);
+assign w_full = (w_NextGray == {~wsync_Rptr[address_Size:address_Size-1],wsync_Rptr[address_Size-2:0]});
 
 //Logic to assert fifo full condition 
 always@(posedge w_Clk, negedge w_Rst)begin 
 	if(!w_Rst) 
-		fifo_Full <= 1'b1;
+		fifo_Full <= 1'b0;
 	else 
 		fifo_Full <= w_full;
 end

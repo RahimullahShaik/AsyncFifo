@@ -28,8 +28,8 @@ module Asyncfifo #(parameter data_Size = 8, parameter address_Size = 5 ) (
 	fifomem #(data_Size, address_Size) fifomem(.read_Data(read_Data), .write_Data(write_Data), .w_Clk(w_Clk), .w_Enable(w_Inc), .w_Addr(w_Addr), .r_Addr(r_Addr), .fifo_Full(fifo_Full));
 
 	//instantiating wirte and read blocks which contains the logic for read and write pointers handling write and read requests
-	rptr_Empty #(address_Size) rptr_Empty(.r_Addr(r_Addr), .r_Clk(r_Clk), .r_Inc(r_Inc), .r_Ptr(r_Ptr), .r_Rst(r_Rst), .fifo_Empty(fifo_Empty), .rsync_Wptr(rsync_Wptr));
-	wptr_Full #(address_Size) wptr_Full(.w_Addr(w_Addr), .w_Clk(w_Clk), .w_Inc(w_Inc), .w_Ptr(w_Ptr), .w_Rst(w_Rst), .fifo_Full(fifo_Full), .wsync_Rptr(wsync_Rptr));
+	FIFO_Empty #(address_Size) rptr_Empty(.r_Addr(r_Addr), .r_Clk(r_Clk), .r_Inc(r_Inc), .r_Ptr(r_Ptr), .r_Rst(r_Rst), .fifo_Empty(fifo_Empty), .rsync_Wptr(rsync_Wptr));
+	FIFO_Full #(address_Size) wptr_Full(.w_Addr(w_Addr), .w_Clk(w_Clk), .w_Inc(w_Inc), .w_Ptr(w_Ptr), .w_Rst(w_Rst), .fifo_Full(fifo_Full), .wsync_Rptr(wsync_Rptr));
 
 
 endmodule 
