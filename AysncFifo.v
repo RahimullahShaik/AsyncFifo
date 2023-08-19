@@ -1,7 +1,7 @@
 
 //Asynchronous FIFO Design 
 
-module Asyncfifo #(parameter data_Size = 8, parameter address_Size = 5 ) (
+module Asyncfifo #(parameter data_Size = 8, parameter address_Size = 3 ) (
 
 			output fifo_Full,  					//gets asserted when the FIFO is full
 			output fifo_Empty, 					// gets asserted when the FIFO is empty

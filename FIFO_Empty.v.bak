@@ -12,6 +12,7 @@ module FIFO_Empty #(parameter address_Size=5)(
 		reg [address_Size:0] r_Bin;			//To store Binary value
 		wire [address_Size:0] r_BinNext, r_GrayNext;	//To store next binary and gray values 
 		wire r_empty;
+
 //Assigning gray value to FIFO read pointer which always points the next address to be written 
 //Updating the binary value which is the address of the FIFO to be written 
 always @(posedge r_Clk, negedge r_Rst)begin 

@@ -1,6 +1,6 @@
 
 //Verilog module to sync write pointer in read domain 
-module sync_w2r #(parameter address_Size=5)(output reg [address_Size:0]rsync_Wptr, input r_Clk, input r_Rst, input [address_Size:0]w_Ptr);
+module sync_w2r #(parameter address_Size=3)(output reg [address_Size:0]rsync_Wptr, input r_Clk, input r_Rst, input [address_Size:0]w_Ptr);
 
 //register to store output of flop 1
 	reg [address_Size:0]wq1_ptr;

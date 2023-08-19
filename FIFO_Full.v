@@ -1,5 +1,5 @@
 //Verilog module for FIFO full logic 
-module FIFO_Full #(parameter address_Size = 5)(
+module FIFO_Full #(parameter address_Size = 3)(
 	output [address_Size-1:0]w_Addr,	//next Address to be written 
 	input 	w_Clk,				//write clock domain clock
 	input	w_Inc,				//asserted when the current address is written so that write address and pointer gets updated

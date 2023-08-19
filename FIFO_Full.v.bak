@@ -36,7 +36,7 @@ assign w_full = (w_NextGray == {~wsync_Rptr[address_Size:address_Size-1],wsync_R
 //Logic to assert fifo full condition 
 always@(posedge w_Clk, negedge w_Rst)begin 
 	if(!w_Rst) 
-		fifo_Full <= 1'b1;
+		fifo_Full <= 1'b0;
 	else 
 		fifo_Full <= w_full;
 end

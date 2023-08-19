@@ -1,5 +1,5 @@
 //Test bench to test the FIFO design 
-module Asyncfifo_tb #(parameter data_Size = 8, address_Size = 5);
+module Asyncfifo_tb #(parameter data_Size = 8, address_Size = 3);
         logic fifo_Full;  					//gets asserted when the FIFO is full
 		logic fifo_Empty; 					// gets asserted when the FIFO is empty
 		logic [data_Size-1:0]read_Data;  	//output data read from the FIFO by the receiver block
@@ -11,7 +11,7 @@ module Asyncfifo_tb #(parameter data_Size = 8, address_Size = 5);
 		logic w_Inc;       					//To incremnet Write pointer 
 		logic r_Inc;  	   					// To increment Read pointer 
 
-	integer i;
+	integer i,j;
 //Instantiating the DUT						
 Asyncfifo #(data_Size, address_Size) Asyncfifoo (
         .fifo_Full(fifo_Full),
@@ -36,87 +36,39 @@ initial begin
     r_Clk = 1'b0;
     w_Inc = 1'b0;
     r_Inc = 1'b0;
-    
- 
-end 
-
-/*initial begin
-    w_Rst = 1'b0;
-    @(posedge w_Clk);
-    w_Rst = 1'b1;
-    @(posedge w_Clk);
-    for(i=0; i<128; i++)begin 
-        if(i%2)
-            w_Inc = 1'b1;
-        else 
-            w_Inc = 1'b0;
-        @(posedge w_Clk);
-        if(w_Inc==1)begin 
-            if(fifo_Full!=1'b1) begin
-                write_Data = $urandom();
-                $display("Data %h is being written in the FIFO",write_Data);
-            end
-        end
-    end
 end 
 /*
-initial begin 
-    r_Rst = 1'b0;
-    repeat(2)@(posedge r_Clk);
-    r_Rst = 1'b1;
-    for(i=0; i<128; i++)begin 
-        if(i%2)
-            r_Inc = 1'b1;
-        else 
-            r_Inc = 1'b0;
-        @(posedge r_Clk);
-        if(r_Inc==1)begin 
-            if(fifo_Empty!=1'b1) begin
-                read_Data = $urandom();
-                $display("Data %h is being read from the FIFO",read_Data);
-            end
-        end
-    end 
-    $finish;
-end */
-//$finish;
-
-
-//test for single read and write 
+//wrote the following tests to test if the data being written to the FIFO is being read properly
+//Tested the Full and empty conditions, stopped writing data and reading data when they are empty and full respectively 
+//Also checked if we are getting synchronized write and read pointers 
+*/
 initial begin 
     w_Rst = 1'b0;
     @(posedge w_Clk);
     w_Rst = 1'b1;
-    @(posedge w_Clk);
-    for(i=0; i<10; i++) begin
-    w_Inc = 1'b1;
-    write_Data = $random();
-    $display("Data %h is being written in the FIFO",write_Data);
-    @(posedge w_Clk);
-    w_Inc = 1'b0;
+    for(i=0; i<15; i++) begin
+        @(posedge w_Clk);
+        if(fifo_Full!=1)begin
+        w_Inc = 1'b1;
+        write_Data = i;
+        $display("Data %h is being written in the FIFO",write_Data);
+        end
     end
-end
-    /*@(posedge w_Clk);
-    w_Inc = 1'b1;
-    write_Data = $random();
-    $display("Data %h is being written in the FIFO",write_Data);
     @(posedge w_Clk);
-    w_Inc = 1'b0;*/
+        w_Inc = 1'b0;
+end
+    
 initial begin
     r_Rst = 1'b0;
-    @(posedge r_Clk);
+    @(negedge r_Clk);
     r_Rst = 1'b1;
-    @(posedge r_Clk);
-    r_Inc = 1'b1;
-    //read_Data = $random();
-    $display("Data %h is being read from the FIFO",read_Data);
-    @(posedge r_Clk);
-    r_Inc = 1'b0;
-    @(posedge r_Clk);
-    r_Inc = 1'b1;
-    //read_Data = $random();
-    $display("Data %h is being read from the FIFO",read_Data);
-    @(posedge r_Clk);
-    r_Inc = 1'b0;
+    for(j=0; j<15; j++) begin
+        @(negedge r_Clk);
+        if(fifo_Empty!=0)begin 
+        r_Inc = 1'b1;
+        $display("Data %h is being read from the FIFO",read_Data);
+        end
+    end
+   
 end
 endmodule

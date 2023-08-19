@@ -1,6 +1,6 @@
 //verilog code for Fifomemory -DRAM
 
-module fifomem #parameter( data_Size = 8, address_Size = 5 ) (
+module fifomem #( parameter data_Size = 8, parameter address_Size = 5 ) (
 
 		input w_Clk,							//write clock
 		input w_Enable, 						//write enable is deasserted when the fifo is full logic is written in write block
