@@ -13,7 +13,7 @@ module fifomem #( parameter data_Size = 8, parameter address_Size = 3 ) (
 		//depth of fifo calculation in order to assign memory according to the depth 
 		localparam fifo_depth = 1<<address_Size;
 		
-		reg [data_Size-1:0] mem[0:fifo_depth];
+		reg [data_Size-1:0] mem[0:fifo_depth-1];
 		
 		//output data is continuosly being assigned to read block
 		assign read_Data = mem[r_Addr];
